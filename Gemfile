@@ -15,6 +15,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'slim-rails'
 gem 'html2slim'
 gem 'rails-i18n'
+gem 'devise'
+gem 'devise_ldap_authenticatable'
 
 group :development, :test do
   gem 'bullet'
