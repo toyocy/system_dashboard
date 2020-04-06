@@ -1,5 +1,6 @@
 class SystemsController < ApplicationController
   before_action :set_system, only: [:show, :edit, :update, :destroy]
+  before_action :set_teams, only: [:new, :edit, :update]
 
   # GET /systems
   # GET /systems.json
@@ -67,8 +68,12 @@ class SystemsController < ApplicationController
       @system = System.find(params[:id])
     end
 
+    def set_teams
+      @teams = Team.all
+    end
+
     # Only allow a list of trusted parameters through.
     def system_params
-      params.require(:system).permit(:name, :description, :is_active)
+      params.require(:system).permit(:name, :description, :is_active, :team_id)
     end
 end
