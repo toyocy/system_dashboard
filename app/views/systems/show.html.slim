@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @system.name
+p
+  strong Description:
+  = @system.description
+p
+  strong Is active:
+  = @system.is_active
+
+=> link_to 'Edit', edit_system_path(@system)
+'|
+=< link_to 'Back', systems_path
