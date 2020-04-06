@@ -1,0 +1,141 @@
+AllCops:
+  TargetRubyVersion: 2.7
+  Exclude:
+    - "node_modules/**/*" # rubocop config/default.yml
+    - "vendor/**/*" # rubocop config/default.yml
+    - "db/schema.rb"
+
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'tmp/**/*'
+    - 'bin/*'
+    - 'script/**/*'
+    - 'lib/**/*'
+    - '**/Gemfile'
+
+#################### Layout ################################
+
+# 桁揃えが綺麗にならないことが多いので migration は除外
+Layout/ExtraSpacing:
+  Exclude:
+    - "db/migrate/*.rb"
+
+Layout/FirstHashElementIndentation:
+  Enabled: false
+
+  
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/LineLength:
+  Max: 160
+  Exclude:
+    - "db/migrate/*.rb"
+
+#################### Metrics ###############################
+
+Metrics/AbcSize:
+  Max: 24
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/BlockLength:
+  Exclude:
+    - "Rakefile"
+    - "**/*.rake"
+    - "spec/**/*.rb"
+    - "Gemfile"
+    - "Guardfile"
+    - "config/environments/*.rb"
+    - "config/routes.rb"
+    - "config/routes/**/*.rb"
+    - "*.gemspec"
+
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - "db/migrate/*.rb"
+
+Metrics/PerceivedComplexity:
+  Max: 8
+
+#################### Naming ################################
+
+# メソッド名のprefixに「set_」「get_」を許可
+Naming/AccessorMethodName:
+  Enabled: false
+
+#################### Lint ################################
+
+Lint/RaiseException:
+  Enabled: false
+
+Lint/StructNewOverride:
+  Enabled: false
+
+#################### Style #################################
+
+# 日本語でのコメントを許可
+Style/AsciiComments:
+  Enabled: false
+
+# 明示的に else で nil を返すのは分かりやすいので許可する
+Style/EmptyElse:
+  EnforcedStyle: empty
+
+# 空メソッドの場合だけ1行で書かなければいけない理由が無い
+# 「セミコロンは使わない」に寄せた方がルールがシンプル
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+Style/NumericLiterals:
+  MinDigits: 7
+  Strict: true
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
+
+# モジュール名::クラス名の定義を許可
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# クラスにコメントを残さない
+Style/Documentation:
+  Enabled: false
+
+# 「and」「or」の使用を許可
+Style/AndOr:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+#################### Bundler #################################
+
+Bundler/OrderedGems:
+  Enabled: false
