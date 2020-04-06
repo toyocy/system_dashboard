@@ -8,9 +8,19 @@
 #  name        :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  team_id     :bigint           not null
+#
+# Indexes
+#
+#  index_systems_on_team_id  (team_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (team_id => teams.id)
 #
 
 one:
   name: example_system
   description: MyText
   is_active: true
+  team_id: one

@@ -8,6 +8,15 @@
 #  name        :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  team_id     :bigint           not null
+#
+# Indexes
+#
+#  index_systems_on_team_id  (team_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (team_id => teams.id)
 #
 class System < ApplicationRecord
   has_many :servers
