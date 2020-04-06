@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Hostname:
+  = @server.hostname
+p
+  strong Url:
+  = @server.url
+p
+  strong Description:
+  = @server.description
+p
+  strong System:
+  = @server.system.name
+
+=> link_to 'Edit', edit_server_path(@server)
+'|
+=< link_to 'Back', servers_path

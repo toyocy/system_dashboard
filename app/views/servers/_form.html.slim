@@ -1,0 +1,21 @@
+= form_for @server do |f|
+  - if @server.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@server.errors.count, "error")} prohibited this server from being saved:"
+      ul
+        - @server.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :hostname
+    = f.text_field :hostname
+  .field
+    = f.label :url
+    = f.text_field :url
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :system
+    = f.collection_select :system_id, @systems, :id, :name, { prompt: "" }
+  .actions = f.submit

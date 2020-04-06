@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_071449) do
+ActiveRecord::Schema.define(version: 2020_04_06_072750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "servers", force: :cascade do |t|
+    t.string "hostname", null: false
+    t.string "url"
+    t.text "description"
+    t.bigint "system_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["system_id"], name: "index_servers_on_system_id"
+  end
 
   create_table "systems", force: :cascade do |t|
     t.string "name", null: false
@@ -23,4 +33,5 @@ ActiveRecord::Schema.define(version: 2020_04_06_071449) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "servers", "systems"
 end

@@ -1,0 +1,27 @@
+h1 Listing servers
+
+table
+  thead
+    tr
+      th Hostname
+      th Url
+      th Description
+      th System
+      th
+      th
+      th
+
+  tbody
+    - @servers.each do |server|
+      tr
+        td = server.hostname
+        td = server.url
+        td = server.description
+        td = server.system.name
+        td = link_to 'Show', server
+        td = link_to 'Edit', edit_server_path(server)
+        td = link_to 'Destroy', server, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Server', new_server_path

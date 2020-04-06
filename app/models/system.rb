@@ -10,4 +10,11 @@
 #  updated_at  :datetime         not null
 #
 class System < ApplicationRecord
+  has_many :servers
+  
+  validates :name, length: { maximum: 50 }, presence: true, uniqueness: true
+
+  scope :available, -> do
+    where(is_active: true)
+  end
 end
