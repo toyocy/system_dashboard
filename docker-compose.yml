@@ -1,0 +1,25 @@
+version: '3'
+services:
+  system_dashboard_dev:
+    image: postgres:12.2
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: system_dashboard_development
+    volumes:
+      - ~/container/system_dashboard/pg/devel:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+
+  system_dashboard_test:
+    image: postgres:12.2
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: system_dashboard_test
+    volumes:
+      - ~/container/system_dashboard/pg/test:/var/lib/postgresql/data/
+    ports:
+      - 15432:5432
+    depends_on:
+      - system_dashboard_dev
