@@ -16,6 +16,12 @@
     = f.label :teams
     = f.collection_select :team_id, @teams, :id, :name, { prompt: "" }
   .field
+    = f.label :admin, "管理者"
+    = f.collection_check_boxes :admin_ids, @admins, :id, :username do |a|
+      = a.label { a.check_box + admin_full_name(a.object)}
+
+  .field
     = f.label :is_active
     = f.check_box :is_active
+
   .actions = f.submit

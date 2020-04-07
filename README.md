@@ -1,24 +1,11 @@
-# README
+# System Dashboard(仮)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+社内のシステムに関する情報を一元管理するダッシュボード
 
-Things you may want to cover:
+以下の情報を取りまとめる。
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- システム名
+- 管理者
+- 利用者
+- サーバー
+- ドキュメント(機能の開放は後日)

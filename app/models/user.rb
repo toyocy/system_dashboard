@@ -30,9 +30,15 @@
 #
 class User < ApplicationRecord
   belongs_to :team, optional: true
-  
+  # has_many :system_has_admins
+  # has_many :systems, through: :system_has_admins, source: :system
+
   before_save :get_last_name, :get_first_name, :get_email
   devise :ldap_authenticatable, :rememberable, :trackable
+
+  scope :admins, -> do
+    where(is_admin: true)
+  end
 
   private
 

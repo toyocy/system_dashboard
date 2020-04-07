@@ -21,8 +21,12 @@
 class System < ApplicationRecord
   belongs_to :team
   has_many :servers
-  
+  has_many :system_has_admins, dependent: :destroy
+  has_many :admins, through: :system_has_admins
+  accepts_nested_attributes_for :system_has_admins, allow_destroy: true
+
   validates :name, length: { maximum: 50 }, presence: true, uniqueness: true
+  validates :team_id, presence: true
 
   scope :available, -> do
     where(is_active: true)
