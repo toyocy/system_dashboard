@@ -19,6 +19,7 @@
 #  fk_rails_...  (team_id => teams.id)
 #
 class System < ApplicationRecord
+  belongs_to :team
   has_many :servers
   
   validates :name, length: { maximum: 50 }, presence: true, uniqueness: true

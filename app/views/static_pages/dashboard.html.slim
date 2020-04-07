@@ -1,6 +1,8 @@
 h1 StaticPages#dashboard
 p Find me in app/views/static_pages/dashboard.html.slim
 
-= current_user.username
+p
+  = link_to  "#{current_user.username}", user_path(current_user)
+
 
 = link_to  "ログアウト", destroy_user_session_path

@@ -17,12 +17,20 @@
 #  username            :string           default(""), not null
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
+#  team_id             :bigint
 #
 # Indexes
 #
+#  index_users_on_team_id   (team_id)
 #  index_users_on_username  (username) UNIQUE
 #
+# Foreign Keys
+#
+#  fk_rails_...  (team_id => teams.id)
+#
 class User < ApplicationRecord
+  belongs_to :team, optional: true
+  
   before_save :get_last_name, :get_first_name, :get_email
   devise :ldap_authenticatable, :rememberable, :trackable
 

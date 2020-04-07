@@ -1,0 +1,25 @@
+p#notice = notice
+
+p
+  strong UserName:
+  = current_user.username
+
+p
+  strong LastName:
+  = current_user.last_name
+  
+p
+  strong FirstName:
+  = current_user.first_name
+  
+p
+  strong Email:
+  = current_user.email
+  
+p
+  strong Team:
+  = current_user.team.name
+
+=> link_to 'Edit', edit_user_path(current_user)
+'|
+=< link_to 'Back', dashboard_path
