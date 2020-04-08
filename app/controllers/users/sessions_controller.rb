@@ -45,7 +45,7 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def user_params
-    params.require(:user).permit(:team_id)
+    params.require(:user).permit(:team_id, :is_admin)
   end
 
   def set_teams

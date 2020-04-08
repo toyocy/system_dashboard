@@ -10,4 +10,9 @@
     = f.label :team
     = f.collection_select :team_id, @teams, :id, :name, { prompt: "" }
 
+  - if current_user.is_admin?
+    .field
+      = f.label :is_admin
+      = f.check_box :is_admin
+      
   .actions = f.submit
