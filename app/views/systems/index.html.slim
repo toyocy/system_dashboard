@@ -16,10 +16,10 @@ table
         td = system.name
         td = system.description
         td = system.is_active
-        td = link_to 'Show', system
-        td = link_to 'Edit', edit_system_path(system)
-        td = link_to 'Destroy', system, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to t('view.show'), system
+        td = link_to t('view.edit'), edit_system_path(system)
+        td = link_to t('view.destroy'), system, data: { confirm: '削除してよろしいですか？' }, method: :delete
 
 br
 
-= link_to 'New System', new_system_path
+= link_to t('view.new_system'), new_system_path

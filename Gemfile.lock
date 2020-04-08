@@ -92,6 +92,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.9.1)
+      devise (>= 4.7.1)
     devise_ldap_authenticatable (0.8.6)
       devise (>= 3.4.1)
       net-ldap (>= 0.16.0)
@@ -280,6 +282,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   coffee-rails (~> 4.2)
   devise
+  devise-i18n
   devise_ldap_authenticatable
   html2slim
   jbuilder (~> 2.5)
@@ -291,7 +294,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.2)
-  rails-i18n
+  rails-i18n (~> 5.1)
   rubocop-rails
   sass-rails (~> 5.0)
   selenium-webdriver

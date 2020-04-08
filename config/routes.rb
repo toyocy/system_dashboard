@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get "dashboard", to: 'static_pages#dashboard'
-  
   devise_for :users, controllers: {
     sessions: "users/sessions"
   }

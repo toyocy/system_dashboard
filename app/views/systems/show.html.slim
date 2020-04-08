@@ -7,9 +7,25 @@ p
   strong Description:
   = @system.description
 p
+  strong Admins:
+  - @system.admins.each do |a|
+    p
+      = "#{a.last_name} #{a.first_name}"
+
+p
   strong Is active:
   = @system.is_active
 
-=> link_to 'Edit', edit_system_path(@system)
+p
+  strong Server:
+  - @system.servers.each do |s|
+    p
+      = s.hostname
+
+p
+  strong Team:
+  = @system.team.name
+
+=> link_to t('view.edit'), edit_system_path(@system)
 '|
-=< link_to 'Back', systems_path
+=< link_to t('view.back'), systems_path
