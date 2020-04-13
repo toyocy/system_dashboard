@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get "/users/sign_out", to: "users/sessions#destroy"
     get "/users/:id", to: "users/sessions#show", as: "user"
     get "/users/:id/edit", to: "users/sessions#edit", as: "edit_user"
+    get "/users", to: "users/sessions#index", as: "users"
     patch "/users/:id", to: "users/sessions#update"
     put "/users/:id", to: "users/sessions#update"
   end

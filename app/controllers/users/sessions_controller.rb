@@ -9,6 +9,10 @@ class Users::SessionsController < Devise::SessionsController
     super
   end
 
+  def index
+    @users = User.all
+  end
+  
   def show
   end
 

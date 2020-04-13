@@ -1,0 +1,26 @@
+- if user_signed_in?
+  header
+    nav.uk-navbar-container[uk-navbar]
+      .uk-navbar-left
+        ul.uk-navbar-nav
+          li.uk-active
+            a[href="/"]
+              | Logo
+
+          li
+            - if user_signed_in? && current_user.is_admin?
+              a[href="#"]
+                | マスタ管理
+              .uk-navbar-dropdown
+                ul.uk-nav.uk-navbar-dropdown-nav
+                  li
+                    = link_to "User", users_path
+                  li
+                    = link_to "Server", servers_path
+                  li
+                    = link_to "Team", teams_path
+
+      .uk-navbar-right
+        ul.uk-navbar-nav
+          li
+            = link_to "ログアウト", destroy_user_session_path

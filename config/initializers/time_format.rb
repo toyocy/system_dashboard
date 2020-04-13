@@ -1,0 +1,1 @@
+Time::DATE_FORMATS[:general_format] = '%Y/%m/%d %H:%M'

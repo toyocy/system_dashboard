@@ -57,6 +57,10 @@ class ServersController < ApplicationController
   def destroy
     @server.destroy
     respond_to do |format|
+      if params[:type] == "from_system_detail"
+        redirect_back fallback_location: system_path, notice: 'Server was successfully destroyed.'
+        return
+      end
       format.html { redirect_to servers_url, notice: 'Server was successfully destroyed.' }
       format.json { head :no_content }
     end

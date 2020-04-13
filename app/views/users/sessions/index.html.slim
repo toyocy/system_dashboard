@@ -1,0 +1,31 @@
+h1 Listing users
+
+table
+  thead
+    tr
+      th username
+      th last name
+      th first name
+      th email
+      th is admin
+      th team
+      th current sign in at
+
+  tbody
+    - @users.each do |user|
+      tr
+        td = user.username
+        td = user.last_name
+        td = user.first_name
+        td = user.email
+        td = user.is_admin
+        - if user.team.nil?
+          td = "未所属"
+        - else
+          td = user.team.name
+        td = user.current_sign_in_at.to_s(:general_format)
+        td = link_to t('view.show'), user
+        td = link_to t('view.edit'), edit_user_path(user)
+        td = link_to t('view.destroy'), user, data: { confirm: 'Are you sure?' }, method: :delete
+
+br

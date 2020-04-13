@@ -1,18 +1,25 @@
-h2
-  | Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :username, "Windows アカウント名"
-    br
-    = f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "Windows アカウント名"
-  .field
-    = f.label :password
-    br
-    = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "users/shared/links"
+.uk-section.uk-section-default.uk-flex.uk-flex-middle.uk-animation-fade uk-height-viewport=""
+  .uk-width-1-1
+    .uk-grid-margin.uk-grid.uk-grid-stack uk-grid=""
+      div class="uk-width-1-1@m"
+        .uk-margin.uk-width-large.uk-margin-auto.uk-card.uk-card-default.uk-card-body.uk-box-shadow-large
+          h3.uk-card-title.uk-text-center
+            | Log in
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .uk-margin
+              .uk-inline.uk-width-1-1
+                span.uk-form-icon uk-icon="icon: user"
+                = f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "Windows アカウント名", class: "uk-input uk-form-large"
+            .uk-margin
+              .uk-inline.uk-width-1-1
+                span.uk-form-icon uk-icon="icon: lock"
+                = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "uk-input uk-form-large"
+            .uk-margin
+              - if devise_mapping.rememberable?
+                .uk-inline.uk-width-1-1
+                  = f.check_box :remember_me, class: "uk-checkbox"
+                  | ログインを記憶する
+            .uk-margin
+              .actions = f.submit "Log in", class: "uk-button uk-button-primary uk-button-large uk-width-1-1"
+        
+          = render "users/shared/links"

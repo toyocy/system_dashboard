@@ -2,3 +2,12 @@
 ja:
   view:
     new_system: 新規システム
+    system_name: システム名
+    description: 説明
+    admins: 管理者
+    is_active: 稼働状況
+    server: サーバー
+    team: 利用チーム
+    active: 稼働中
+    unactive: 未稼働
+    system_edit: システム情報編集
