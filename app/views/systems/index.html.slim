@@ -1,4 +1,8 @@
-.uk-margin-medium
+.uk-margin-small
+= link_to new_system_path do
+  span uk-icon="icon: plus-circle; ratio: 2" uk-tooltip="システムを追加"
+
+.uk-margin-small
 div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid=""
   - @systems.each do |system|
     div
@@ -6,16 +10,29 @@ div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid=""
         .uk-card-header
           .uk-grid-small.uk-flex-middle uk-grid=""
             .uk-width-expand
-              h3.uk-card-title.uk-margin-remove-bottom
+              h3.uk-card-title.uk-margin-remove-bottom.uk-height-match
                 = system.name
+                .status.uk-align-right
+                  - if system.is_active
+                    span.uk-label.uk-label-success
+                      = t("view.active")
+                  - else
+                    span.uk-label.uk-label-warning
+                      = t("view.unactive")
               p.uk-text-meta.uk-margin-remove-top
                 | Last Update 
                 = system.updated_at.to_s(:general_format)
+
         .uk-card-body.uk-height-small.uk-text-truncate
           - if system.description.empty?
             | システムに関する説明がありません
           - else
             = system.description
+
         .uk-card-footer
           = link_to "詳細", system, class: "uk-button uk-button-text"
           = link_to "削除", system, data: { confirm: '削除してよろしいですか？' }, method: :delete, class: "uk-align-right uk-button uk-button-text"
+
+.uk-margin-large
+.uk-align-right
+  a[href="#" uk-totop uk-scroll]

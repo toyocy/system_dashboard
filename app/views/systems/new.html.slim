@@ -1,5 +1,8 @@
-h1 New system
+- provide(:title, "新規システム")
 
-== render 'form'
+.uk-margin.uk-width-large.uk-margin-auto.
+  h2.uk-align-center = t('view.new_system')
 
-= link_to t('view.back'), systems_path
+  == render 'form'
+
+  = link_to t('view.back'), systems_path
