@@ -2,6 +2,7 @@ class SystemsController < ApplicationController
   before_action :set_system, only: [:show, :edit, :update, :destroy]
   before_action :set_teams, only: [:new, :create, :edit, :update]
   before_action :set_admins, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user!
 
   # GET /systems
   # GET /systems.json

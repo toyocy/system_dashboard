@@ -1,0 +1,37 @@
+p#notice = notice
+
+p
+  strong #{t('view.username')}:
+  = @user.username
+
+p
+  strong #{t('view.last_name')}:
+  = @user.last_name
+  
+p
+  strong #{t('view.first_name')}:
+  = @user.first_name
+  
+p
+  strong #{t('view.email')}:
+  = @user.email
+  
+p
+  strong #{t('view.authority')}:
+  - if @user.is_admin?
+    span.uk-label.uk-label-danger
+      = t("view.is_admin")
+  - else
+    span.uk-label.uk-label-success
+      = t("view.not_admin")
+
+p
+  strong #{t('view.team')}:
+  - if @user.team.nil?
+    = "未所属"
+  - else
+    = @user.team.name
+
+=> link_to t('view.edit'), edit_user_path(@user)
+'|
+=< link_to t('view.back'), users_path

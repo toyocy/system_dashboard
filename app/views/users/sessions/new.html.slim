@@ -17,7 +17,7 @@
             .uk-margin
               - if devise_mapping.rememberable?
                 .uk-inline.uk-width-1-1
-                  = f.check_box :remember_me, class: "uk-checkbox"
+                  = f.check_box :remember_me, class: "uk-checkbox uk-margin-small-right"
                   | ログインを記憶する
             .uk-margin
               .actions = f.submit "Log in", class: "uk-button uk-button-primary uk-button-large uk-width-1-1"

@@ -1,0 +1,30 @@
+= form_for current_user do |f|
+  - if @user.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(current_user.errors.count, "error")} prohibited this user from being saved:"
+      ul
+        - current_user.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :username, t('view.username')
+    = f.text_field :username, disabled: true
+  .field
+    = f.label :last_name, t('view.last_name')
+    = f.text_field :last_name, disabled: true
+  .field
+    = f.label :first_name, t('view.first_name')
+    = f.text_field :first_name, disabled: true
+  .field
+    = f.label :email, t('view.email')
+    = f.text_field :email, disabled: true
+  .field
+    = f.label :team, t('view.team')
+    = f.collection_select :team_id, @teams, :id, :name, { prompt: "" }
+
+  - if current_user.is_admin?
+    .field
+      = f.label :is_admin, t('view.admin_authority')
+      = f.check_box :is_admin
+      
+  .actions = f.submit

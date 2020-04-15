@@ -31,7 +31,8 @@ div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid=""
 
         .uk-card-footer
           = link_to "詳細", system, class: "uk-button uk-button-text"
-          = link_to "削除", system, data: { confirm: '削除してよろしいですか？' }, method: :delete, class: "uk-align-right uk-button uk-button-text"
+          = link_to system, data: { confirm: '削除してよろしいですか？' }, method: :delete do
+            span.uk-align-right uk-icon="icon: trash" uk-tooltip="削除"
 
 .uk-margin-large
 .uk-align-right

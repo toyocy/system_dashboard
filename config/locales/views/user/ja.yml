@@ -1,0 +1,15 @@
+---
+ja:
+  view:
+    username: ユーザー名
+    full_name: 氏名
+    last_name: 姓
+    first_name: 名
+    email: メールアドレス
+    is_admin: 管理者
+    team: チーム
+    last_login: 最終ログイン日時
+    user_edit: ユーザー情報編集
+    authority: 権限
+    not_admin: 一般ユーザー
+    admin_authority: 管理者権限

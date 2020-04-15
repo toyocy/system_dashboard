@@ -1,0 +1,45 @@
+.uk-overflow-auto
+  table.uk-table.uk-table-striped.uk-table-justify
+    caption
+      h2 ユーザー一覧
+    thead
+      tr
+        th = t('view.username')
+        th = t('view.full_name')
+        th = t('view.email')
+        th = t('view.authority')
+        th = t('view.team')
+        th = t('view.last_login')
+
+    tbody
+      - @users.each do |user|
+        tr
+          td = user.username
+          td = user.last_name + " " + user.first_name
+          td = user.email
+
+          td
+            span
+              - if user.is_admin?
+                .uk-label.uk-label-danger
+                  = t("view.is_admin")
+              - else
+                .uk-label.uk-label-success
+                  = t("view.not_admin")
+
+          - if user.team.nil?
+            td = "未所属"
+          - else
+            td = user.team.name
+
+          td = user.current_sign_in_at.to_s(:general_format)
+          td = link_to user do
+            span uk-icon="icon: list" uk-tooltip="参照"
+
+          td = link_to edit_user_path(user) do
+            span uk-icon="icon: pencil" uk-tooltip="編集"
+
+          td = link_to user, data: { confirm: t('devise.registrations.edit.are_you_sure') }, method: :delete do
+            span uk-icon="icon: trash" uk-tooltip="削除"
+
+  br
