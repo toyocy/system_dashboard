@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
   system_dashboard_dev:
     image: postgres:12.2
@@ -10,7 +10,8 @@ services:
       - ~/container/system_dashboard/pg/devel:/var/lib/postgresql/data/
     ports:
       - 5432:5432
-
+    mem_limit: 2g
+    
   system_dashboard_test:
     image: postgres:12.2
     environment:
