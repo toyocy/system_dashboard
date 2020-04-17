@@ -48,7 +48,6 @@ p#notice = notice
             th.uk-padding-remove-left HostName
             th.uk-padding-remove-left Link to GLPI
             th
-            th
         tbody
           - @system.servers.each do |s|
             tr
@@ -59,8 +58,7 @@ p#notice = notice
                 td = link_to s.url.to_s, s.url, target: :_blank
               td
                 = link_to edit_server_path(s) do
-                  .uk-icon-button uk-icon="pencil" uk-tooltip="編集"
-              td
+                  .uk-icon-button.uk-margin-small-right uk-icon="pencil" uk-tooltip="編集"
                 = link_to server_path(s, type: 'from_system_detail'), data: { confirm: '削除してよろしいですか？' }, method: :delete
                   .uk-icon-button uk-icon="trash" uk-tooltip="削除"
 

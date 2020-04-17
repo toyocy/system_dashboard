@@ -1,21 +1,35 @@
-= form_for @server do |f|
-  - if @server.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@server.errors.count, "error")} prohibited this server from being saved:"
-      ul
-        - @server.errors.full_messages.each do |message|
-          li = message
+.uk-margin.uk-width-large.uk-margin-auto.
 
-  .field
-    = f.label :hostname
-    = f.text_field :hostname
-  .field
-    = f.label :url
-    = f.text_field :url
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :system
-    = f.collection_select :system_id, @systems, :id, :name, { prompt: "" }
-  .actions = f.submit
+  = form_for @server do |f|
+    - if @server.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@server.errors.count, "error")} prohibited this server from being saved:"
+        ul
+          - @server.errors.full_messages.each do |message|
+            li = message
+
+    fieldset.uk-fieldset
+
+      .uk-margin
+        .uk-inline
+          = f.label :hostname, t('view.hostname'), class: "uk-form-label uk-margin-small-right"
+        span.uk-label.uk-label-danger
+          = t('view.require')
+        = f.text_field :hostname, class: "uk-input"
+
+      .uk-margin
+        = f.label :url, t('view.url'), class: "uk-form-label"
+        = f.text_field :url, class: "uk-input"
+
+      .uk-margin
+        = f.label :description, t('view.description'), class: "uk-form-label"
+        = f.text_area :description, class: "uk-textarea", rows: "5"
+
+      .uk-margin
+        .uk-inline
+          = f.label :system, t('view.system'), class: "uk-form-label uk-margin-small-right"
+        span.uk-label.uk-label-danger
+          = t('view.require')
+        = f.collection_select :system_id, @systems, :id, :name, { prompt: "" }, class: "uk-select"
+
+      .actions = f.submit class: "uk-button uk-button-primary"

@@ -11,7 +11,10 @@
     fieldset.uk-fieldset
     
       .uk-margin
-        = f.label :name, t('view.system_name'), class: "uk-form-label"
+        .uk-inline
+          = f.label :name, t('view.system_name'), class: "uk-form-label uk-margin-small-right"
+        span.uk-label.uk-label-danger
+          = t('view.require')
         = f.text_field :name, class: "uk-input"
 
       .uk-margin
@@ -19,16 +22,19 @@
         = f.text_area :description, class: "uk-textarea", rows: "5"
     
       .uk-margin
-        = f.label :team, t('view.team'), class: "uk-form-label"
+        .uk-inline
+          = f.label :team, t('view.team'), class: "uk-form-label uk-margin-small-right"
+        span.uk-label.uk-label-danger
+          = t('view.require')
         = f.collection_select :team_id, @teams, :id, :name, { prompt: "" }, class: "uk-select"
     
       .uk-margin.uk-grid-small.uk-child-width-auto.uk-grid
         = f.label :admin, t('view.admins')
         = f.collection_check_boxes :admin_ids, @admins, :id, :username do |a|
-            = a.label { a.check_box(class: "uk-checkbox") + admin_full_name(a.object)}
+            = a.label { a.check_box(class: "uk-checkbox uk-margin-small-right") + admin_full_name(a.object)}
 
       .uk-margin.uk-grid-small.uk-child-width-auto.uk-grid
-        = f.label :is_active, "稼働中"
+        = f.label :is_active, "稼働状況", class: "uk-margin-small-right"
         = f.check_box :is_active, class: "uk-checkbox"
 
     .uk-margin
