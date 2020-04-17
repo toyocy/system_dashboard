@@ -1,18 +1,18 @@
 p#notice = notice
 
 p
-  strong Hostname:
+  strong #{t('view.hostname')}:
   = @server.hostname
 p
-  strong Url:
+  strong #{t('view.url')}:
   = @server.url
 p
-  strong Description:
+  strong #{t('view.description')}:
   = @server.description
 p
-  strong System:
-  = @server.system.name
+  strong #{t('view.system')}:
+  = link_to @server.system.name, system_path(@server.system_id), target: :_blank
 
-=> link_to 'Edit', edit_server_path(@server)
+=> link_to t('view.edit'), edit_server_path(@server)
 '|
-=< link_to 'Back', servers_path
+=< link_to t('view.back'), servers_path

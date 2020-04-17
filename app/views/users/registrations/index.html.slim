@@ -1,7 +1,7 @@
 .uk-overflow-auto
   table.uk-table.uk-table-striped.uk-table-justify
     caption
-      h2 ユーザー一覧
+      h2 = t('view.user_list')
     thead
       tr
         th = t('view.username')
@@ -34,12 +34,12 @@
 
           td = user.current_sign_in_at.to_s(:general_format)
           td = link_to user do
-            span uk-icon="icon: list" uk-tooltip="参照"
+            span uk-icon="icon: list" uk-tooltip="#{t('view.show')}"
 
           td = link_to edit_user_path(user) do
-            span uk-icon="icon: pencil" uk-tooltip="編集"
+            span uk-icon="icon: pencil" uk-tooltip="#{t('view.edit')}"
 
           td = link_to user, data: { confirm: t('devise.registrations.edit.are_you_sure') }, method: :delete do
-            span uk-icon="icon: trash" uk-tooltip="削除"
+            span uk-icon="icon: trash" uk-tooltip="#{t('view.destroy')}"
 
   br

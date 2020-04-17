@@ -1,6 +1,7 @@
 ---
 ja:
   view:
+    user_list: ユーザー一覧
     username: ユーザー名
     full_name: 氏名
     last_name: 姓
