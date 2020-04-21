@@ -10,5 +10,7 @@
 class Team < ApplicationRecord
   has_many :servers
   has_many :users
+  has_many :systems
+  
   validates :name, length: { maximum: 50 }, presence: true, uniqueness: true
 end

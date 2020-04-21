@@ -1,6 +1,6 @@
 .uk-margin-small
 = link_to new_server_path do
-  span uk-icon="icon: plus-circle; ratio: 2" uk-tooltip="#{t('view.new_server')}"
+  span uk-icon="icon: plus-circle; ratio: 2" uk-tooltip="#{t('view.add_server')}"
 
 .uk-margin-small
 .uk-overflow-auto
@@ -10,8 +10,6 @@
         th = t('view.hostname')
         th = t('view.description')
         th = t('view.system')
-        th
-        th
         th
 
     tbody
@@ -24,12 +22,13 @@
 
           td = server.description
           td = server.system.name
-          td = link_to server do
-            span uk-icon="icon: list" uk-tooltip="#{t('view.show')}"
+          td
+            = link_to server do
+              span uk-icon="icon: list" uk-tooltip="#{t('view.show')}" class="uk-margin-small-right"
 
-          td = link_to edit_server_path(server) do
-            span uk-icon="icon: pencil" uk-tooltip="#{t('view.edit')}"
+            = link_to edit_server_path(server) do
+              span uk-icon="icon: pencil" uk-tooltip="#{t('view.edit')}" class="uk-margin-small-right"
 
-          td = link_to server, data: { confirm: t('view.are_you_sure') }, method: :delete do
-            span uk-icon="icon: trash" uk-tooltip="#{t('view.destroy')}"
+            = link_to server, data: { confirm: t('view.are_you_sure') }, method: :delete do
+              span uk-icon="icon: trash" uk-tooltip="#{t('view.destroy')}"
 

@@ -6,5 +6,5 @@ ja:
     url: GLPI へのURL
     description: 説明
     system: 利用しているシステム
-    new_server: サーバーを追加
+    add_server: サーバーを追加
 

@@ -1,21 +1,36 @@
-h1 Listing teams
+.uk-margin-small
+= link_to new_server_path do
+  span uk-icon="icon: plus-circle; ratio: 2" uk-tooltip="#{t('view.add_team')}"
 
-table
-  thead
-    tr
-      th Name
-      th
-      th
-      th
-
-  tbody
-    - @teams.each do |team|
+.uk-margin-small
+.uk-overflow-auto
+  table.uk-table.uk-table-striped.uk-table-justify
+    thead
       tr
-        td = team.name
-        td = link_to 'Show', team
-        td = link_to 'Edit', edit_team_path(team)
-        td = link_to 'Destroy', team, data: { confirm: 'Are you sure?' }, method: :delete
+        th = t('view.name')
+        th = t('view.systems')
+        th
 
-br
+    tbody
+      - @teams.each do |team|
+        tr
+          td = team.name
+          td
+            - team.systems.each do |s|
+              p
+                span.uk-margin-small-right = link_to s.name, system_path(s.id), target: :_blank
+                - if s.is_active
+                  span.uk-label.uk-label-success
+                    = t('view.active')
+                - else
+                  span.uk-label.uk-label-warning
+                    = t('view.unactive')
+          td
+            = link_to team do
+              span uk-icon="icon: list" uk-tooltip="#{t('view.show')}" class="uk-margin-small-right"
 
-= link_to 'New Team', new_team_path
+            = link_to edit_team_path(team) do
+              span uk-icon="icon: pencil" uk-tooltip="#{t('view.edit')}" class="uk-margin-small-right"
+
+            = link_to team, data: { confirm: t('view.are_you_sure') }, method: :delete do
+              span uk-icon="icon: trash" uk-tooltip="#{t('view.destroy')}"

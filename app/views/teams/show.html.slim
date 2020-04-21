@@ -1,9 +1,14 @@
 p#notice = notice
 
 p
-  strong Name:
+  strong #{t('view.name')}:
   = @team.name
 
-=> link_to 'Edit', edit_team_path(@team)
+p
+  strong #{t('view.systems')}:
+  - @team.systems.each do |s|
+      p = s.name
+
+=> link_to t('view.edit'), edit_team_path(@team)
 '|
-=< link_to 'Back', teams_path
+=< link_to t('view.back'), teams_path
