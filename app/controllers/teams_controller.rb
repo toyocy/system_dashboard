@@ -7,7 +7,7 @@ class TeamsController < ApplicationController
   def index
     @teams = Team.all.includes(
       :systems
-    )
+    ).order(name: :ASC)
   end
 
   # GET /teams/1

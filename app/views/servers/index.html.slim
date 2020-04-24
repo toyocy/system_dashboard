@@ -21,7 +21,9 @@
             td = link_to server.hostname, server.url, target: :_blank
 
           td = server.description
-          td = server.system.name
+          td 
+            - unless server.system.nil?
+              = server.system.name
           td
             = link_to server do
               span uk-icon="icon: list" uk-tooltip="#{t('view.show')}" class="uk-margin-small-right"

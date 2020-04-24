@@ -7,7 +7,7 @@ class SystemsController < ApplicationController
   # GET /systems
   # GET /systems.json
   def index
-    @systems = System.all
+    @systems = System.all.order(name: :ASC)
   end
 
   # GET /systems/1

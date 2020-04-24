@@ -11,7 +11,8 @@ p
   = @server.description
 p
   strong #{t('view.system')}:
-  = link_to @server.system.name, system_path(@server.system_id), target: :_blank
+  - unless @server.system.nil?
+    = link_to @server.system.name, system_path(@server.system_id), target: :_blank
 
 => link_to t('view.edit'), edit_server_path(@server)
 '|

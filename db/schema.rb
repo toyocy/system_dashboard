@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_04_07_063707) do
     t.boolean "is_active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "team_id", null: false
+    t.bigint "team_id"
     t.index ["team_id"], name: "index_systems_on_team_id"
   end
 

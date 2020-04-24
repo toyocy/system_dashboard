@@ -19,7 +19,7 @@
 #  fk_rails_...  (system_id => systems.id)
 #
 class Server < ApplicationRecord
-  belongs_to :system
+  belongs_to :system, optional: true
 
   validates :hostname, length: { maximum: 50 }, presence: true, uniqueness: true
   validates :url, length: { maximum: 500 }

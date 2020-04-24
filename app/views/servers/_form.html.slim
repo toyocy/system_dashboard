@@ -30,6 +30,6 @@
           = f.label :system, t('view.system'), class: "uk-form-label uk-margin-small-right"
         span.uk-label.uk-label-danger
           = t('view.require')
-        = f.collection_select :system_id, @systems, :id, :name, { prompt: "" }, class: "uk-select"
+        = f.collection_select :system_id, @systems.order('systems.name ASC'), :id, :name, { prompt: "" }, class: "uk-select"
 
       .actions = f.submit class: "uk-button uk-button-primary"

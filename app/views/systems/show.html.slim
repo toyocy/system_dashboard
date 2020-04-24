@@ -32,7 +32,8 @@ p#notice = notice
           p.uk-text-meta.uk-text-bold.uk-margin-remove-bottom
             = t('view.team')
           .content
-            = @system.team.name
+            - unless @system.team.nil?
+              = @system.team.name
         / IT側の管理者
         .admins
           p.uk-text-meta.uk-text-bold.uk-margin-remove-bottom

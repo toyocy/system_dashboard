@@ -6,7 +6,9 @@ class ServersController < ApplicationController
   # GET /servers
   # GET /servers.json
   def index
-    @servers = Server.all
+    @servers = Server.all.includes(
+      :system
+    ).order(hostname: :ASC)
   end
 
   # GET /servers/1

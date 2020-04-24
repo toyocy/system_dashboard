@@ -8,7 +8,7 @@
 #  name        :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  team_id     :bigint           not null
+#  team_id     :bigint
 #
 # Indexes
 #
@@ -19,14 +19,13 @@
 #  fk_rails_...  (team_id => teams.id)
 #
 class System < ApplicationRecord
-  belongs_to :team
+  belongs_to :team, optional: true
   has_many :servers
   has_many :system_has_admins, dependent: :destroy
   has_many :admins, through: :system_has_admins
   accepts_nested_attributes_for :system_has_admins, allow_destroy: true
 
-  validates :name, length: { maximum: 50 }, presence: true, uniqueness: true
-  validates :team_id, presence: true
+  validates :name, length: { maximum: 100 }, presence: true, uniqueness: true
 
   scope :available, -> do
     where(is_active: true)
